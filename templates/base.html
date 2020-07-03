@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <title>{% block title %}{% endblock %}</title>
+  <style>
+    .content {
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: gray;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: rgb(222, 227, 231);
+    }
+
+    .active {
+      background-color: #27b66e;
+    }
+
+    .add {
+      margin-right: 10px;
+      margin-left: 10px;
+      text-align: left;
+      background-color: #eee;
+    }
+
+    .jum {
+      padding-top: 1px;
+      padding-bottom: 10px;
+    }
+    .list{
+      margin-right: 10px;
+      margin-left: 15px;
+    }
+ 
+  </style>
+</head>
+
+<body>
+  <div class='content'>
+    <ul>
+      <li><a class="active" href="/">View Products</a></li>
+    </ul>
+  </div>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>

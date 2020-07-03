@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Update Item{% endblock %}
+{% block content %}
+<div class='add'>
+    <div class="jum">
+        <h3 style="text-align:left;color:red; font-size:24px;">Update Product</h3>
+        <form action="" method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{form|crispy}}<br>
+            <button type="submit" class='btn btn-success' style="color: black; font-weight:bold;padding-right: 3ex;">Update</button>
+        </form>
+    </div>
+</div>
+
+    {% endblock %}

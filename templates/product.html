@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Shop{% endblock %}
+{% block content %}
+
+<section class='add'>
+    <div class='add'>
+        <div class="jum">
+            <h3 style="text-align:left;color:red; font-size:24px;">Add New Product</h3>
+            <form action="" method="POST" autocomplete="off">
+                {% csrf_token %}
+                {{form|crispy}}<br>
+                <button type="submit" class='btn btn-success' style="color: black; font-weight:bold;">Add Product</button>
+            </form>
+        </div>
+    </div>
+    </form>
+</section>
+<section class='list'>
+    <p style="text-align: center;color:red; font-size:24px;"> <b>List of Products</b></p>
+    <table class='table table-bordered'>
+        <thead class='boder-bottom font-weight-bold'>
+            <tr style='font-size:20px;font-weight:bold;'>
+                <td>Product Name </td>
+                <td>Product Price </td>
+                <td>Product Brand </td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.brand}}</td>
+                <td>
+                    <a href="edit/{{item.id}}" class='btn btn-info' style="color: black;">Edit</a>
+                    <a href="delt/{{item.id}}" class='btn btn-danger' style="color: black;">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
