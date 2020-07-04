@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import product
 from .models import item
+import json
 from django.shortcuts import render
 from .models import item
 from .serializers import itemSerializer
@@ -16,11 +17,10 @@ class itemList(APIView):
         serializer = itemSerializer(items, many=True)
         return Response(serializer.data)
     def post(self, request, format=None):
-            serializer = itemSerializer(data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        data=json.load(request)
+        items = item.objects.get (id=data["id"])
+        serializer = itemSerializer(items)
+        return Response(serializer.data)
 
 class itemDetail(APIView):
     pass
